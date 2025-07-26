@@ -10,9 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.imagetotext.screens.CropScreen
 import com.fiveman.imagetotext.HomeScreen
+import com.fiveman.imagetotext.ResultScreen
 import com.fiveman.imagetotext.TextEditScreen
+import com.fiveman.imagetotext.screens.CropScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +40,11 @@ class MainActivity : ComponentActivity() {
                                 navController = navController,
                                 imageUri = imageUri
                             )
+                        }
+
+                        composable("result/{imageUri}") { backStackEntry ->
+                            val imageUri = backStackEntry.arguments?.getString("imageUri") ?: ""
+                            ResultScreen(imageUri = imageUri, navController = navController)
                         }
                         composable("text_edit/{extractedText}") { backStackEntry ->
                             val extractedText = backStackEntry.arguments?.getString("extractedText") ?: ""

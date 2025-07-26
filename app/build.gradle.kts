@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.fiveman.imagetotext"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -44,23 +44,6 @@ android {
 }
 
 dependencies {
-
-/*    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation(libs.androidx.core.ktx.v1120)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.ui)
-    implementation(libs.text.recognition)
-    implementation(libs.ucrop)*/
-
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx.v1160)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -74,8 +57,12 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.compose)
 
-    // For ML Kit Text Recognition (Optional - for real OCR)
-    // implementation("com.google.mlkit:text-recognition:16.0.0")
+    // ML Kit Text Recognition dependencies
+    implementation(libs.vision.common) // Common dependency for ML Kit
+    implementation(libs.text.recognition.v1600) // Base text recognition
+    implementation(libs.kotlinx.coroutines.play.services)
+    // Optional: Use Latin-specific recognizer if needed
+    // implementation 'com.google.mlkit:text-recognition-latin:16.0.0'
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit.v121)
@@ -84,4 +71,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.ucrop.v229native)
+    implementation(libs.itext7.core)
+    implementation(libs.poi)
+    implementation(libs.poi.ooxml)
 }
+

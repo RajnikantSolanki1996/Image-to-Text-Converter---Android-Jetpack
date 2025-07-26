@@ -8,21 +8,32 @@ composeBom = "2025.07.00"
 composeBomVersion = "2023.10.01"
 coreKtxVersion = "1.12.0"
 espressoCoreVersion = "3.6.1"
+googleTextRecognition = "16.0.0"
+itext7Core = "7.2.5"
 kotlin = "2.0.21"
 coreKtx = "1.10.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+kotlinxCoroutinesPlayServices = "1.7.3"
 lifecycleRuntimeKtx = "2.9.2"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 material3 = "1.3.2"
 navigationCompose = "2.9.2"
+poi = "5.2.5"
+poiOoxml = "5.2.5"
+poiScratchpad = "5.2.5"
 textRecognition = "16.0.1"
+textRecognitionLatin = "16.0.0"
+textRecognitionVersion = "17.0.0"
 ucrop = "2.2.10"
+ucropVersion = "2.2.9-native"
 ui = "1.8.3"
+playServicesMlkitTextRecognitionCommon = "19.1.0"
+visionCommon = "17.3.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
@@ -44,17 +55,28 @@ androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+itext7-core = { module = "com.itextpdf:itext7-core", version.ref = "itext7Core" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutinesPlayServices" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 material3 = { module = "androidx.compose.material3:material3" }
+poi = { module = "org.apache.poi:poi", version.ref = "poi" }
+poi-ooxml = { module = "org.apache.poi:poi-ooxml", version.ref = "poiOoxml" }
+poi-scratchpad = { module = "org.apache.poi:poi-scratchpad", version.ref = "poiScratchpad" }
 text-recognition = { module = "com.google.mlkit:text-recognition", version.ref = "textRecognition" }
+text-recognition-latin = { module = "com.google.mlkit:text-recognition-latin", version.ref = "textRecognitionLatin" }
+text-recognition-v1600 = { module = "com.google.mlkit:text-recognition", version.ref = "googleTextRecognition" }
+text-recognition-v1700 = { module = "com.google.mlkit:text-recognition", version.ref = "textRecognitionVersion" }
 ucrop = { module = "com.github.yalantis:ucrop", version.ref = "ucrop" }
+ucrop-v229native = { module = "com.github.yalantis:ucrop", version.ref = "ucropVersion" }
 ui = { module = "androidx.compose.ui:ui" }
+play-services-mlkit-text-recognition-common = { group = "com.google.android.gms", name = "play-services-mlkit-text-recognition-common", version.ref = "playServicesMlkitTextRecognitionCommon" }
+vision-common = { module = "com.google.mlkit:vision-common", version.ref = "visionCommon" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
