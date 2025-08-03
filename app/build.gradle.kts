@@ -75,5 +75,8 @@ dependencies {
     implementation(libs.itext7.core)
     implementation(libs.poi)
     implementation(libs.poi.ooxml)
+    implementation(libs.androidx.material.icons.core)
+    implementation(libs.androidx.material.icons.extended)
+
 }
 

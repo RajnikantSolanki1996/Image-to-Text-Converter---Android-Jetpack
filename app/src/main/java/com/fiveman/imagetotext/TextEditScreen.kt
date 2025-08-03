@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
@@ -46,7 +47,7 @@ fun TextEditScreen(
     val decodedText = URLDecoder.decode(initialText, StandardCharsets.UTF_8.toString())
     var editableText by remember { mutableStateOf(decodedText) }
     var showSaveDialog by remember { mutableStateOf(false) }
-    var isSwitchChecked by remember { mutableStateOf(false) }
+    //var isSwitchChecked by remember { mutableStateOf(false) }
 
     // States for the Save Dialog
     var fileName by remember { mutableStateOf("") }
@@ -71,7 +72,7 @@ fun TextEditScreen(
                             document.close()
                             Log.d("TextEditScreen", "PDF saved with ${editableText.length} characters")
                         }
-                        FileFormat.DOC -> {
+                /*        FileFormat.DOC -> {
                             // Use Apache POI to create a .docx file
                             val doc = XWPFDocument()
                             // Create a single paragraph for simplicity
@@ -83,7 +84,7 @@ fun TextEditScreen(
                             outputStream.flush()
                             doc.close()
                             Log.d("TextEditScreen", "DOCX saved with ${editableText.length} characters")
-                        }
+                        }*/
                         FileFormat.TXT -> {
                             // Write text directly for TXT
                             outputStream.write(editableText.toByteArray(StandardCharsets.UTF_8))
@@ -96,7 +97,7 @@ fun TextEditScreen(
 
                 // Attempt to open the file
                 try {
-                    val intent = Intent(Intent.ACTION_VIEW).apply {
+/*                    val intent = Intent(Intent.ACTION_VIEW).apply {
                         setDataAndType(uri, selectedFormat.mimeType)
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                         // Fallback MIME type for .docx
@@ -105,7 +106,7 @@ fun TextEditScreen(
                             setDataAndType(uri, "application/msword")
                         }
                     }
-                    context.startActivity(Intent.createChooser(intent, "Open ${selectedFormat.displayName}"))
+                    context.startActivity(Intent.createChooser(intent, "Open ${selectedFormat.displayName}"))*/
                 } catch (e: Exception) {
                     Log.e("TextEditScreen", "Failed to open file: ${e.message}")
                     Toast.makeText(context, "Unable to open file: ${e.message}", Toast.LENGTH_LONG).show()
@@ -150,7 +151,7 @@ fun TextEditScreen(
                         clipboardManager.setText(AnnotatedString(editableText))
                         Toast.makeText(context, "Text copied to clipboard!", Toast.LENGTH_SHORT).show()
                     }) {
-                        Icon(Icons.Default.Star, contentDescription = "Copy")
+                        Icon(Icons.Default.ContentCopy, contentDescription = "Copy")
                     }
                     Text("Copy", style = MaterialTheme.typography.labelSmall)
                 }
@@ -204,7 +205,7 @@ fun TextEditScreen(
                 }
 
                 // Switch Option
-                Column(
+               /* Column(
                     modifier = Modifier.weight(1.2f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -222,7 +223,7 @@ fun TextEditScreen(
                         )
                     )
                     Text("Option", style = MaterialTheme.typography.labelSmall)
-                }
+                }*/
             }
         }
     ) { innerPadding ->
@@ -340,5 +341,5 @@ fun TextEditScreen(
 enum class FileFormat(val extension: String, val mimeType: String, val displayName: String) {
     TXT(".txt", "text/plain", "Text (.txt)"),
     PDF(".pdf", "application/pdf", "PDF (.pdf)"),
-    DOC(".docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "DOCX (.docx)")
+   // DOC(".docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "DOCX (.docx)")
 }

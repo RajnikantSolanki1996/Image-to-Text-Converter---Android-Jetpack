@@ -14,6 +14,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Photo
+import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -139,9 +141,7 @@ fun HomeScreen(navController: NavController) {
             TopAppBar(
                 title = { Text("Image to Text") },
                 navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
-                    }
+
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
@@ -186,7 +186,7 @@ fun HomeScreen(navController: NavController) {
                         verticalArrangement = Arrangement.Center
                     ) {
                         Icon(
-                            Icons.Default.Star,
+                            Icons.Default.PhotoCamera,
                             contentDescription = "Take Photo",
                             tint = MaterialTheme.colorScheme.onPrimaryContainer,
                             modifier = Modifier.size(64.dp)
@@ -221,7 +221,7 @@ fun HomeScreen(navController: NavController) {
                         verticalArrangement = Arrangement.Center
                     ) {
                         Icon(
-                            Icons.Default.AccountCircle,
+                            Icons.Default.Photo,
                             contentDescription = "Choose from Gallery",
                             tint = MaterialTheme.colorScheme.onSecondaryContainer,
                             modifier = Modifier.size(64.dp)
